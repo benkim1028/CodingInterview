@@ -18,3 +18,22 @@ class Solution {
         return ans;
     }
 }
+class Solution {
+    public int reverse(int x) {
+        boolean neg = (x < 0) ? true : false;
+        int result = 0;
+        int num = Math.abs(x);
+        try{
+            while(num > 0){
+                System.out.println(result);
+                result = Math.multiplyExact(result, 10) + num % 10;
+                num = num/10;
+            }
+            System.out.println(result);
+            result = neg ? -result : result;
+        } catch (Exception e) {
+            return 0;
+        }
+        return result;
+    }
+}
