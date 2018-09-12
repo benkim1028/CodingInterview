@@ -8,23 +8,22 @@
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode start = new ListNode(0);
+        start.next = head;
         ListNode point1 = head;
         ListNode point2 = head;
-        while(n > 0){
-            ListNode temp = point2.next;
-            point2 = temp;
-            n--;
-        }
-        while(true){
-            if(point2 == null)
-                return point1.next;
-            if(point2.next == null){
-                point1.next = point1.next.next;
-                break;
+        ListNode prev = start;
+        while(point2 != null){
+            if(n > 0){
+                point2 = point2.next;
+                n--;
+            } else{
+                prev = point1;
+                point1 = point1.next;
+                point2 = point2.next;
             }
-            point1 = point1.next;
-            point2 = point2.next;
         }
-        return head;
+        prev.next = point1.next;
+        return start.next;
     }
 }
