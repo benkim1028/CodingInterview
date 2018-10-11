@@ -15,7 +15,7 @@ class Solution {
         for(int i = index; i < candidates.length; i++){
             com.add(candidates[i]);
             findAllCombinations(ans, com, candidates, target, sum + candidates[i], i);
-            com.remove(com.size() -1 );
+            com.remove(com.size() -1 ); 
         }
     }
 }
