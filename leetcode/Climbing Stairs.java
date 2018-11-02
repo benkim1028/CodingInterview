@@ -1,11 +1,11 @@
 class Solution {
     public int climbStairs(int n) {
-        ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(0, 0);
-        arr.add(1, 1);
-        arr.add(2, 2);
-        for(int start = 3; start <= n; start++){
-            arr.add(start, new Integer(arr.get(start-1) + arr.get(start-2)));
+        int first = 1;
+        int second = 1;
+        for (int i = 2; i <= n; i++){
+            if(i % 2 == 0) first = first + second;
+            else second = first + second;
         }
-        return arr.get(n);
+        return n % 2 == 0? first : second;
+    }
 }
